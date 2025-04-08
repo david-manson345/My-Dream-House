@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Villa</title>
+    <script src="script/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.4.0/dist/aframe-extras.min.js"></script>
+</head>
+<body>
+    <a-scene>
+        <a-assets>
+            <a-asset-item src="models/old_cottage__3.glb" id="house"></a-asset-item>
+            <a-asset-item src="models/mother%20and%20child.glb" id="humans"></a-asset-item>
+            <img src="textures/floor.jpg" id="floor">
+            <img src="textures/photo_2023-04-05_23-29-52.jpg" id="sky">
+
+        </a-assets>
+        
+        <!-- Ambient light for overall scene -->
+         <a-light type="ambient" color="#333333" intensity="1"></a-light>
+        
+       
+        <!--Sky-->
+        <a-sky src="#sky"></a-sky>
+
+        <!--Pool-->
+        <a-ocean 
+        color="aqua" 
+        depth="65" 
+        width="250"
+        position="-170 -7 -290"    
+        ></a-ocean>
+
+        <!--fence around main pool-->
+        <a-box 
+        color="white"
+        position="-170 -7 -330"
+        width="350"
+        height="5"
+        ></a-box>
+
+        <!--Fence around Main pool-->
+        <a-box 
+        color="white"
+        position="-170 -7 -255"
+        width="350"
+        height="5"
+        ></a-box>
+
+        <!--The villa-->
+        <a-entity
+        gltf-model="#house"
+        scale="10 10 10"
+        position="0 -10 0"
+        ></a-entity>
+        
+        <!--Mother and child-->
+        <a-entity 
+        gltf-model="#humans"
+        scale="0.1 0.1 0.1"
+        position="-10 -10 65"
+        ></a-entity>
+
+
+
+    
+    <!--Front light-->
+    <a-sphere
+    color="white"
+    geometry="radius 0.03"
+    position="-25 8 5"
+    
+
+    >
+    <a-light
+    type="point"
+    intensity="4"
+    distance="100"
+        
+    ></a-light>
+    </a-sphere>
+
+    <!--Front left light-->
+    <a-sphere
+    color="white"
+    geometry="radius 0.03"
+    position="130 8 5"
+    
+
+    >
+    <a-light
+    type="point"
+    intensity="2"
+    distance="100"
+        
+    ></a-light>
+    </a-sphere>
+
+    <!--inside light-->
+    <a-sphere
+    color="white"
+    geometry="radius 0.03"
+    position="130 8 25"
+    
+
+    >
+    <a-light
+    type="point"
+    intensity="2"
+    distance="100"
+        
+    ></a-light>
+    </a-sphere>
+
+    <!--outside light-->
+    <a-sphere
+    color="white"
+    geometry="radius 0.03"
+    position="10 50 25 "
+    
+
+    >
+    <a-light
+    type="point"
+    intensity="2"
+    distance="250"
+        
+    ></a-light>
+    </a-sphere>
+
+    <!--Pool light-->
+    <a-sphere
+            color="white"
+            geometry="radius 0.03"
+            position="-170 -7 -290"
+                
+            
+        >
+        <a-light
+                type="point"
+                intensity="2"
+                distance="100"
+                    
+                    
+                    
+                
+        ></a-light>
+    </a-sphere>
+
+    <!--Floor-->
+        <a-plane 
+        repeat="50 25"
+        src= "#floor"
+        color="white" 
+        position="0 -12 0" 
+        width="1000" 
+        height="5000" 
+        rotation="-90 0 0">
+      </a-plane>
+        
+        
+        <!--Camera-->
+        <a-entity position="30 10 350">
+            <a-camera user-height="100"></a-camera>
+          </a-entity>
+
+        <!--Cardilac Model-->
+        <a-asset-item src="models/cardilac/scene.gltf" id="cardilac"></a-asset-item>
+        <a-entity gltf-model="#cardilac" position=" 50 -12 150" scale="595 595 595"></a-entity>
+          
+        <!--Cat Model-->
+        <a-asset-item src="models/cat/scene.gltf" id="cat"></a-asset-item>
+        <a-entity gltf-model="#cat" position=" -30 -12 150" scale="5 5 5"></a-entity>
+
+        
+
+
+    </a-scene>
+    
+</body>
+</html>
